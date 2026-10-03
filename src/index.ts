@@ -1,10 +1,10 @@
 #!/usr/bin/env bun
 import {sleep} from 'bun'
-import {existsSync, mkdirSync, cpSync, rmSync, writeFileSync} from 'node:fs'
+import hasFlag from 'has-flag'
+import {cpSync, existsSync, mkdirSync, rmSync, writeFileSync} from 'node:fs'
 import {tmpdir} from 'node:os'
 import path from 'node:path'
 import {chromium, type Page} from 'playwright'
-import hasFlag from 'has-flag'
 
 // Default Chrome user data dir (so the existing profile/cookies are reused)
 const local_app_data = process.env.LOCALAPPDATA ?? ''
