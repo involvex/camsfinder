@@ -4,9 +4,12 @@
 	"type": "module",
 	"module": "src/index.ts",
 	"bin": {
+		"camsfinder": "dist/camsfinder.exe",
 		"camsfinder-cli": "src/index.ts"
 	},
 	"scripts": {
+		"prebuild": "bun run check",
+		"build": "bun build --compile --outfile dist/camsfinder.exe src/index.ts",
 		"check": "bun run format && bun run lint:fix && bun run typecheck",
 		"dev": "bun src/index.ts",
 		"format": "prettier . --write",
@@ -17,6 +20,7 @@
 	"prettier": "@involvex/prettier-config",
 	"dependencies": {
 		"@types/node": "^26.6.4",
+		"chromium-bidi": "^12.0.2",
 		"has-flag": "^5.0.1",
 		"playwright": "^1.63.0"
 	},

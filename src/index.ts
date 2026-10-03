@@ -259,7 +259,7 @@ async function extractModelUrls(url: string) {
 		console.log(`Found ${models.length} models:`)
 		console.table(models)
 		// Write the whole listing (the same table as in the console) to the result file
-		writeFileSync('result.txt', formatModelsTable(models), 'utf8')
+		writeFileSync('out/result.txt', formatModelsTable(models), 'utf8')
 	} catch (error) {
 		console.error('Error extracting URLs:', error)
 	} finally {
