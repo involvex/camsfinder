@@ -1,0 +1,29 @@
+{
+	"name": "camsfinder",
+	"private": true,
+	"type": "module",
+	"module": "src/index.ts",
+	"bin": {
+		"camsfinder-cli": "src/index.ts"
+	},
+	"scripts": {
+		"check": "bun run format && bun run typecheck",
+		"dev": "bun src/index.ts",
+		"format": "prettier . --write",
+		"typecheck": "tsc --noEmit"
+	},
+	"prettier": "@involvex/prettier-config",
+	"dependencies": {
+		"@types/node": "^26.6.4",
+		"has-flag": "^5.0.1",
+		"playwright": "^1.63.0"
+	},
+	"devDependencies": {
+		"@involvex/prettier-config": "^0.0.6",
+		"@types/bun": "latest",
+		"prettier": "^3.9.9"
+	},
+	"peerDependencies": {
+		"typescript": "^7"
+	}
+}
