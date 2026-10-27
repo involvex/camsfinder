@@ -1,20 +1,21 @@
 {
-	"name": "camsfinder",
+	"name": "@involvex/camsfinder",
 	"private": true,
 	"type": "module",
 	"module": "src/index.ts",
 	"bin": {
-		"camsfinder": "dist/camsfinder.exe",
+		"camsfinder": "dist/camsfinder.js",
 		"camsfinder-cli": "src/index.ts"
 	},
 	"scripts": {
 		"prebuild": "bun run check",
-		"build": "bun build --compile --outfile dist/camsfinder.exe src/index.ts",
+		"build": "bun build --target node --minify ./src/index.ts --outfile dist/camsfinder.js",
 		"check": "bun run format && bun run lint:fix && bun run typecheck",
+		"compile": "bun build --compile --outfile dist/camsfinder.exe src/index.ts",
 		"dev": "bun src/index.ts",
 		"format": "prettier . --write",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
+		"lint": "eslint src",
+		"lint:fix": "eslint src --fix",
 		"typecheck": "tsc --noEmit"
 	},
 	"prettier": "@involvex/prettier-config",
@@ -30,6 +31,7 @@
 		"@types/bun": "latest",
 		"eslint": "^10.12.0",
 		"globals": "^17.13.0",
+		"jiti": "^2.7.0",
 		"prettier": "^3.9.9",
 		"typescript-eslint": "^8.71.0"
 	},
